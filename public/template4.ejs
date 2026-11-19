@@ -1,0 +1,450 @@
+<% layout("/layouts/boilerplate") %>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+/* background:#efefef; */
+padding:20px;
+}
+
+.resume{
+max-width:900px;
+margin:auto;
+background:#fff;
+display:grid;
+grid-template-columns:38% 62%;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+position:relative;
+overflow:hidden;
+}
+
+/* top background */
+
+.resume::before{
+content:"";
+position:absolute;
+top:0;
+right:0;
+width:100%;
+height:220px;
+background:#d7c6b8;
+clip-path:polygon(25% 0,100% 0,100% 100%);
+z-index:0;
+}
+
+/* bottom background */
+
+.resume::after{
+content:"";
+position:absolute;
+bottom:0;
+right:0;
+width:100%;
+height:160px;
+background:#e6b995;
+clip-path:polygon(0 100%,100% 100%,100% 30%);
+z-index:0;
+}
+
+/* LEFT */
+
+.left{
+background:#d8c8ba;
+padding:30px;
+position:relative;
+z-index:2;
+}
+
+.photo{
+text-align:center;
+margin-bottom:30px;
+}
+
+.photo img{
+width:190px;
+height:190px;
+border-radius:50%;
+object-fit:cover;
+box-shadow:12px 12px rgba(0,0,0,.08);
+}
+
+.side-section{
+margin-bottom:45px;
+}
+
+.side-section h2{
+font-size:22px;
+font-weight:700;
+text-align:center;
+margin-bottom:12px;
+letter-spacing:1px;
+}
+
+.side-section hr{
+border:none;
+height:2px;
+background:#555;
+margin-bottom:18px;
+}
+
+.side-section p{
+line-height:1.7;
+color:#444;
+font-size:14px;
+}
+
+.contact-item{
+display:flex;
+align-items:center;
+gap:14px;
+margin:16px 0;
+background:rgba(255,255,255,.4);
+padding:10px;
+}
+
+.contact-item i{
+width:32px;
+height:32px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#e5b58f;
+color:#333;
+}
+
+/* RIGHT */
+
+.right{
+padding:40px;
+position:relative;
+z-index:2;
+}
+
+.name{
+font-size:50px;
+font-weight:300;
+letter-spacing:2px;
+color:#333;
+margin-top:10px;
+}
+
+.role{
+font-size:24px;
+margin-top:8px;
+color:#444;
+margin-bottom:80px;
+}
+
+.section{
+margin-bottom:45px;
+}
+
+.section h2{
+font-size:20px;
+font-weight:700;
+margin-bottom:12px;
+border-bottom:2px solid #555;
+padding-bottom:6px;
+}
+
+.edu-item,
+.exp-item,
+.project,
+.reference{
+margin-bottom:30px;
+}
+
+.edu-item h3,
+.exp-item h3,
+.project h3{
+font-size:22px;
+margin-bottom:6px;
+color:#222;
+}
+
+.edu-item p,
+.exp-item p,
+.project p,
+.reference p{
+line-height:1.7;
+margin-bottom:6px;
+color:#444;
+}
+
+.tech,
+.link{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:8px;
+}
+
+.tech i,
+.link i{
+color:#555;
+}
+
+.link a{
+text-decoration:none;
+color:#444;
+word-break:break-word;
+}
+
+@media(max-width:850px){
+
+.resume{
+grid-template-columns:1fr;
+}
+
+.right{
+padding-top:20px;
+}
+
+.name{
+font-size:38px;
+}
+
+.role{
+margin-bottom:30px;
+}
+
+}
+
+@page{
+size:A4;
+margin:0;
+}
+
+@media print{
+
+body{
+padding:0;
+background:white;
+}
+
+.resume{
+box-shadow:none;
+width:210mm;
+min-height:297mm;
+}
+
+}
+.resume-actions {
+      max-width: 1000px;
+      margin: 20px auto;
+      text-align: right;
+    }
+    .resume-actions button {
+      background: #0078d7;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      margin-left: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .resume-actions button:hover {
+      background: #005fa3;
+    }
+    .resume-actions i {
+      margin-right: 6px;
+    }
+
+  /* RESPONSIVE */
+  @media (max-width: 850px) {
+    .resume {
+      grid-template-columns: 1fr;
+    }
+    .left {
+      text-align: center;
+    }
+    .contact div {
+      justify-content: center;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<div class="resume">
+
+<!-- LEFT -->
+
+<div class="left">
+
+<div class="photo">
+<img src="<%= data.profileImage.url %>" alt="<%= data.name %>">
+</div>
+
+<div class="side-section">
+<h2>PROFILE</h2>
+<hr>
+<p><%= data.summary %></p>
+</div>
+
+<div class="side-section">
+<h2>CONTACT</h2>
+<hr>
+
+<div class="contact-item">
+<i class="fas fa-envelope"></i>
+<span><%= data.email %></span>
+</div>
+
+<div class="contact-item">
+<i class="fas fa-phone"></i>
+<span><%= data.phone %></span>
+</div>
+
+<div class="contact-item">
+<i class="fas fa-location-dot"></i>
+<span><%= data.address %></span>
+</div>
+
+<div class="contact-item">
+<i class="fab fa-linkedin"></i>
+<span><%= data.linkedin %></span>
+</div>
+
+<div class="contact-item">
+<i class="fab fa-github"></i>
+<span><%= data.github %></span>
+</div>
+
+</div>
+
+<div class="side-section">
+<h2>SKILLS</h2>
+<hr>
+<p><%= data.skills %></p>
+</div>
+
+<div class="side-section">
+<h2>INTERESTS</h2>
+<hr>
+
+<p>• <%= data.hobby1 %></p>
+<p>• <%= data.hobby2 %></p>
+<p>• <%= data.hobby3 %></p>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="right">
+
+<div class="name"><%= data.name %></div>
+
+<div class="role">Full Stack Developer</div>
+
+<div class="section">
+
+<h2>EDUCATION</h2>
+
+<div class="edu-item">
+
+<h3><%= data.education[0].degree %></h3>
+
+<p><strong><%= data.education[0].institution %></strong></p>
+
+<p><%= data.education[0].year %></p>
+
+<p><%= data.education[0].specialization %></p>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>WORK EXPERIENCE</h2>
+
+<div class="exp-item">
+
+<h3><%= data.experience[0].title %></h3>
+
+<p><strong><%= data.experience[0].company %></strong></p>
+
+<p><%= data.experience[0].startDate %> - <%= data.experience[0].endDate %></p>
+
+<p><%= data.experience[0].responsibilities %></p>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>PROJECTS</h2>
+
+<div class="project">
+
+<h3><%= data.projectTitle %></h3>
+
+<p><%= data.projectDescription %></p>
+
+<div class="tech">
+<i class="fas fa-layer-group"></i>
+<span><%= data.projectTech %></span>
+</div>
+
+<div class="link">
+<i class="fas fa-link"></i>
+<a href="<%= data.projectLink %>"><%= data.projectLink %></a>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>REFERENCE</h2>
+
+<div class="reference">
+
+<h3><%= data.refName1 %></h3>
+
+<p><%= data.refRelation %></p>
+
+<p><i class="fas fa-phone"></i> <%= data.refContact1 %></p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+ <form action="/resume/<%=data._id%>/edit">
+        <div class="resume-actions">
+    <button onclick="window.location.href='/resume/edit/<%= data._id %>'">
+      <i class="fas fa-edit"></i> Edit
+  </div>
+       </form>
+       <form action="">
+        <div class="resume-actions">
+         </button>
+    <button onclick="window.print()">
+      <i class="fas fa-print"></i> Print
+    </button>
+       </form>
+         </div>
+
+</body>
+</html>

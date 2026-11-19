@@ -1,0 +1,140 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+  .container-my-5{
+    height: 20rem;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .custom-input {
+    border: 2px solid #4facfe;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  .custom-input:focus {
+    border-color: #00f2fe;
+    box-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+  }
+  .btn-gradient {
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    transition: 0.3s ease;
+  }
+  .btn-gradient:hover {
+    background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+    transform: scale(1.05);
+  }
+  .review{
+     height: 15rem;
+     width: 20rem;
+     border: 3px solid black;
+     overflow-y: auto;
+        border-top-right-radius: 5rem;
+        border-bottom-left-radius: 5rem;
+  }
+</style>
+<div class="data">
+<div class="box-s">
+     <div class="box-s-img">
+        <img src="<%=data.resumeImage.url%>" alt="">
+     </div>
+    
+</div>
+</div>
+<div class="cont">
+     <form action="/resume/<%=data._id%>" method="get">
+    <button class="btn">USE THIS TEMPLATE</button>
+   
+   </form>
+   <br>
+  
+   <% if(data.owner && data.owner._id.equals(curr._id)){ %>
+
+   
+   <form action="/resume/<%=data._id%>/newEdit" method="get">
+        <button class="btn">EDIT THE template</button>
+    </form>
+    <br>
+    <form action="/resume/<%=data._id%>/delete?_method=DELETE" method="post">
+      <button class="btn">DELETE</button>
+    </form>
+  <%}%>
+
+</div>
+
+
+
+<div class="container-my-5">
+  <% if(curr){ %>
+  
+  
+  <div class="card shadow-lg border-0 rounded-4">
+   
+    <div class="card-body p-4">
+      <h3 class="text-center mb-4 text-primary fw-bold">✨ Submit Your Review ✨</h3>
+      
+      <form action="/resume/<%=data._id%>/review" method="POST" >
+        
+        <!-- Rating -->
+        <div class="mb-4">
+          <label for="rating" class="form-label fw-semibold">Rating</label>
+        
+          <select id="rating" name="reviews[rating]" 
+                  class="form-select custom-input shadow-sm" required>
+            <option value="" disabled selected>Choose rating...</option>
+            <option value="1">⭐ 1 - Poor</option>
+            <option value="2">⭐⭐ 2 - Fair</option>
+            <option value="3">⭐⭐⭐ 3 - Good</option>
+            <option value="4">⭐⭐⭐⭐ 4 - Very Good</option>
+            <option value="5">⭐⭐⭐⭐⭐ 5 - Excellent</option>
+          </select>
+         
+        </div>
+
+        <!-- Comment -->
+        <div class="mb-4">
+          <label for="comment" class="form-label fw-semibold">Comment</label>
+          <br>
+          <textarea id="comment" class="form-control custom-input shadow-sm" 
+                    cols="30" rows="5" name="reviews[comment]" 
+                    placeholder="Write your feedback here..." required></textarea>
+    
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button class="btn btn-gradient px-5 py-2 rounded-pill fw-bold">
+            🚀 Submit Review
+          </button>
+        </div>
+      </form>
+   
+    </div>
+
+
+
+</div>
+<% } %>
+
+<div class="review">
+     <h3>&nbsp;&nbsp;All reviews</h3>
+     <hr>
+     <% for(let Data of data.reviews){%>
+        <h5><%= Data.author.username
+         %></h5>
+           <b>&nbsp;&nbsp;<%=Data.comment%></b>
+           <p><%=Data.rating%></p>
+          
+          <% if(Data.author._id.equals(curr._id)){%>
+           <form action="/resume/<%=data._id%>/review/<%=Data._id%>?_method=DELETE" method="post">
+            <button>delete</button>
+           </form>
+           <%}%>
+           <hr>
+
+     <%}%>
+</div>
+
+</div>

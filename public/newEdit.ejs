@@ -1,0 +1,170 @@
+<% layout("/layouts/boilerplate") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Resume</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2, h3 {
+      color: #333;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: 600;
+      color: #444;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: #0078d7;
+      outline: none;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    .skills input {
+      margin-bottom: 8px;
+    }
+    button {
+      background: #0078d7;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Edit Resume</h2>
+    <form action="/resume/<%= data._id %>/newEdit?_method=PUT" method="POST">
+      
+      <!-- Template ID -->
+      <div class="section">
+        <label for="templateId">Template ID:</label>
+        <input type="text" id="templateId" name="templateId" value="<%= data.templateId %>">
+      </div>
+
+      <!-- Images -->
+      <div class="section">
+        <label for="resumeImage">Resume Image URL:</label>
+        <input type="text" id="resumeImage" name="resumeImage" value="<%= data.resumeImage %>" required>
+
+        <label for="profileImage">Profile Image URL:</label>
+        <input type="text" id="profileImage" name="profileImage" value="<%= data.profileImage %>" required>
+      </div>
+
+      <!-- Basic Info -->
+      <div class="section">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" value="<%= data.name %>" required>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" value="<%= data.phone %>" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= data.email %>" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" value="<%= data.address %>" required>
+
+        <label for="linkedin">LinkedIn:</label>
+        <input type="url" id="linkedin" name="linkedin" value="<%= data.linkedin %>">
+
+        <label for="github">GitHub:</label>
+        <input type="url" id="github" name="github" value="<%= data.github %>">
+      </div>
+
+      <!-- Summary -->
+      <div class="section">
+        <label for="summary">Summary:</label>
+        <textarea id="summary" name="summary" rows="4" required><%= data.summary %></textarea>
+      </div>
+
+      <!-- Education -->
+      <div class="section">
+        <h3>Education</h3>
+        <input type="text" name="education[0][degree]" value="<%= data.education[0]?.degree %>" placeholder="Degree">
+        <input type="text" name="education[0][institution]" value="<%= data.education[0]?.institution %>" placeholder="Institution">
+        <input type="text" name="education[0][year]" value="<%= data.education[0]?.year %>" placeholder="Year">
+        <input type="text" name="education[0][specialization]" value="<%= data.education[0]?.specialization %>" placeholder="Specialization">
+      </div>
+
+      <!-- Skills -->
+      <div class="section skills">
+        <h3>Skills</h3>
+        <input type="text" name="skills[]" value="<%= data.skills[0] %>" placeholder="Skill 1">
+        <input type="text" name="skills[]" value="<%= data.skills[1] %>" placeholder="Skill 2">
+        <input type="text" name="skills[]" value="<%= data.skills[2] %>" placeholder="Skill 3">
+      </div>
+
+      <!-- Experience -->
+      <div class="section">
+        <h3>Experience</h3>
+        <input type="text" name="experience[0][title]" value="<%= data.experience[0]?.title %>" placeholder="Job Title">
+        <input type="text" name="experience[0][company]" value="<%= data.experience[0]?.company %>" placeholder="Company">
+        <input type="text" name="experience[0][startDate]" value="<%= data.experience[0]?.startDate %>" placeholder="Start Date">
+        <input type="text" name="experience[0][endDate]" value="<%= data.experience[0]?.endDate %>" placeholder="End Date">
+        <textarea name="experience[0][responsibilities]" rows="3" placeholder="Responsibilities"><%= data.experience[0]?.responsibilities %></textarea>
+      </div>
+
+      <!-- Project -->
+      <div class="section">
+        <h3>Project</h3>
+        <input type="text" name="projectTitle" value="<%= data.projectTitle %>" placeholder="Project Title">
+        <textarea name="projectDescription" rows="3" placeholder="Project Description"><%= data.projectDescription %></textarea>
+        <input type="text" name="projectTech" value="<%= data.projectTech %>" placeholder="Technologies">
+        <input type="url" name="projectLink" value="<%= data.projectLink %>" placeholder="Project Link">
+      </div>
+
+      <!-- Hobbies -->
+      <div class="section">
+        <h3>Hobbies</h3>
+        <input type="text" name="hobby1" value="<%= data.hobby1 %>" placeholder="Hobby 1">
+        <input type="text" name="hobby2" value="<%= data.hobby2 %>" placeholder="Hobby 2">
+        <input type="text" name="hobby3" value="<%= data.hobby3 %>" placeholder="Hobby 3">
+      </div>
+
+      <!-- References -->
+      <div class="section">
+        <h3>Reference</h3>
+        <input type="text" name="refName1" value="<%= data.refName1 %>" placeholder="Name">
+        <input type="text" name="refContact1" value="<%= data.refContact1 %>" placeholder="Contact">
+        <input type="text" name="refRelation1" value="<%= data.refRelation1 %>" placeholder="Relation">
+      </div>
+
+      <!-- Submit -->
+      <button type="submit">Update Resume</button>
+    </form>
+  </div>
+</body>
+</html>

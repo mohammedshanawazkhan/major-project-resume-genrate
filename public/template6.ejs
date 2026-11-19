@@ -1,0 +1,568 @@
+<% layout("/layouts/boilerplate") %>
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+/* background:#ececec; */
+padding:20px;
+}
+
+.resume{
+max-width:1000px;
+margin:auto;
+display:grid;
+grid-template-columns:50% 50%;
+box-shadow:0 12px 35px rgba(0,0,0,.15);
+position:relative;
+overflow:hidden;
+min-height:1400px;
+}
+
+/* top strip */
+
+.top-strip{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:46px;
+background:#23242d;
+z-index:5;
+}
+
+/* left */
+
+.left{
+background:#efefeb;
+padding:70px 35px 35px;
+position:relative;
+}
+
+/* right */
+
+.right{
+background:#00230d;
+padding:420px 35px 35px;
+color:white;
+position:relative;
+}
+
+/* name */
+
+.name-box{
+margin-top:20px;
+}
+
+.name-box h1{
+font-size:70px;
+font-weight:800;
+color:#203325;
+line-height:.95;
+}
+
+.name-box h2{
+font-size:58px;
+font-weight:300;
+color:#203325;
+}
+
+.role{
+font-size:28px;
+letter-spacing:4px;
+margin-top:25px;
+}
+
+/* profile */
+
+.photo{
+position:absolute;
+top:85px;
+right:-120px;
+width:360px;
+height:360px;
+border-radius:50%;
+background:white;
+padding:12px;
+z-index:4;
+box-shadow:0 20px 35px rgba(0,0,0,.25);
+}
+
+.photo img{
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:cover;
+}
+
+/* about */
+
+.about-card{
+background:#bcc58d;
+padding:28px;
+border-radius:35px;
+margin-top:35px;
+box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+
+.pill{
+display:inline-block;
+background:#00301b;
+color:white;
+padding:10px 28px;
+border-radius:40px;
+font-weight:600;
+margin-bottom:16px;
+}
+
+.about-card p{
+line-height:1.9;
+font-size:16px;
+color:#1d291d;
+}
+
+/* section */
+
+.section{
+margin-top:35px;
+}
+
+.section .pill-light{
+display:inline-block;
+background:#bcc58d;
+padding:10px 24px;
+border-radius:40px;
+font-weight:700;
+margin-bottom:20px;
+box-shadow:0 8px 18px rgba(0,0,0,.18);
+}
+
+/* skills */
+
+.skill-row{
+display:flex;
+justify-content:space-between;
+margin:14px 0;
+font-size:17px;
+}
+
+/* education */
+
+.edu h3{
+font-size:23px;
+margin-bottom:10px;
+}
+
+.edu p{
+margin:7px 0;
+line-height:1.7;
+}
+
+/* language */
+
+.lang-grid{
+display:flex;
+justify-content:space-between;
+margin-top:15px;
+}
+
+.circle{
+width:105px;
+height:105px;
+border-radius:50%;
+background:
+conic-gradient(#00301b 94%, #bcc58d 94%);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.circle span{
+width:74px;
+height:74px;
+border-radius:50%;
+background:#efefeb;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:20px;
+}
+
+/* contact */
+
+.contact{
+margin-top:35px;
+}
+
+.contact div{
+display:flex;
+align-items:center;
+gap:15px;
+margin:18px 0;
+font-size:16px;
+}
+
+.contact i{
+width:34px;
+height:34px;
+background:#8b3f49;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+}
+
+/* right */
+
+.right .pill-light{
+background:#bcc58d;
+color:white;
+}
+
+.job{
+margin-bottom:40px;
+}
+
+.job h3{
+font-size:28px;
+font-weight:700;
+}
+
+.job .date{
+margin:12px 0;
+font-size:18px;
+}
+
+.job h4{
+font-size:22px;
+margin-bottom:12px;
+}
+
+.job ul{
+padding-left:22px;
+line-height:1.9;
+}
+
+.project{
+margin-top:35px;
+}
+
+.project h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.project p{
+line-height:1.8;
+}
+
+.info{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:12px;
+}
+
+.reference{
+margin-top:35px;
+}
+
+.reference h3{
+font-size:24px;
+}
+
+.reference p{
+margin-top:8px;
+}
+
+/* print */
+
+@page{
+size:A4;
+margin:0;
+}
+
+@media print{
+
+body{
+padding:0;
+background:white;
+}
+
+.resume{
+box-shadow:none;
+width:210mm;
+min-height:297mm;
+}
+
+}
+
+@media(max-width:900px){
+
+.resume{
+grid-template-columns:1fr;
+}
+
+.photo{
+position:relative;
+right:auto;
+top:auto;
+margin:30px auto;
+}
+
+.right{
+padding-top:40px;
+}
+
+.name-box h1{
+font-size:48px;
+}
+
+.name-box h2{
+font-size:40px;
+}
+
+
+}
+.resume-actions {
+      max-width: 1000px;
+      margin: 20px auto;
+      text-align: right;
+    }
+    .resume-actions button {
+      background: #0078d7;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      margin-left: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .resume-actions button:hover {
+      background: #005fa3;
+    }
+    .resume-actions i {
+      margin-right: 6px;
+    }
+
+  /* RESPONSIVE */
+  @media (max-width: 850px) {
+    .resume {
+      grid-template-columns: 1fr;
+    }
+    .left {
+      text-align: center;
+    }
+    .contact div {
+      justify-content: center;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+
+<div class="resume">
+
+<div class="top-strip"></div>
+
+<!-- LEFT -->
+
+<div class="left">
+
+<div class="name-box">
+
+<h1><%= data.name.split(' ')[0] || data.name %></h1>
+
+<h2><%= data.name.split(' ').slice(1).join(' ') %></h2>
+
+<div class="role">Full Stack Developer</div>
+
+</div>
+
+<div class="about-card">
+
+<div class="pill">About Me</div>
+
+<p><%= data.summary %></p>
+
+</div>
+
+<div class="section">
+
+<div class="pill-light">Skills:</div>
+
+<div class="skill-row">
+<span><%= data.skills %></span>
+</div>
+
+</div>
+
+<div class="section edu">
+
+<div class="pill-light">Education:</div>
+
+<h3><%= data.education[0].degree %></h3>
+
+<p><strong><%= data.education[0].institution %></strong></p>
+
+<p><%= data.education[0].specialization %></p>
+
+<p><%= data.education[0].year %></p>
+
+</div>
+
+<div class="section">
+
+<div class="pill-light">Language:</div>
+
+<div class="lang-grid">
+
+<div>
+<p>English</p>
+<div class="circle"><span>94%</span></div>
+</div>
+
+<div>
+<p>Hindi</p>
+<div class="circle" style="background:conic-gradient(#00301b 86%, #bcc58d 86%);">
+<span>86%</span>
+</div>
+</div>
+
+<div>
+<p>Telugu</p>
+<div class="circle" style="background:conic-gradient(#00301b 84%, #bcc58d 84%);">
+<span>84%</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="contact">
+
+<div><i class="fas fa-phone"></i><span><%= data.phone %></span></div>
+
+<div><i class="fas fa-globe"></i><span><%= data.github %></span></div>
+
+<div><i class="fas fa-location-dot"></i><span><%= data.address %></span></div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="right">
+
+<div class="photo">
+
+<img src="<%= data.profileImage.url %>" alt="<%= data.name %>">
+
+</div>
+
+<div class="section">
+
+<div class="pill-light">Professional Experience:</div>
+
+<div class="job">
+
+<h3><%= data.experience[0].title %></h3>
+
+<div class="date">
+<%= data.experience[0].startDate %> - <%= data.experience[0].endDate %>
+</div>
+
+<h4><%= data.experience[0].company %></h4>
+
+<ul>
+<li><%= data.experience[0].responsibilities %></li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="pill-light">Projects:</div>
+
+<h3><%= data.projectTitle %></h3>
+
+<p><%= data.projectDescription %></p>
+
+<div class="info">
+
+<i class="fas fa-layer-group"></i>
+
+<span><%= data.projectTech %></span>
+
+</div>
+
+<div class="info">
+
+<i class="fas fa-link"></i>
+
+<span><%= data.projectLink %></span>
+
+</div>
+
+</div>
+
+<div class="reference">
+
+<div class="pill-light">Reference:</div>
+
+<h3><%= data.refName1 %></h3>
+
+<p><%= data.refRelation %></p>
+
+<div class="info">
+
+<i class="fas fa-phone"></i>
+
+<span><%= data.refContact1 %></span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+ <form action="/resume/<%=data._id%>/edit">
+        <div class="resume-actions">
+    <button onclick="window.location.href='/resume/edit/<%= data._id %>'">
+      <i class="fas fa-edit"></i> Edit
+  </div>
+       </form>
+       <form action="">
+        <div class="resume-actions">
+         </button>
+    <button onclick="window.print()">
+      <i class="fas fa-print"></i> Print
+    </button>
+       </form>
+         </div>
+
+</body>

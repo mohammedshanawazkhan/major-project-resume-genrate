@@ -1,0 +1,22 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+   
+    <div class="data">
+   <% for(let Data of data) {%>
+     <a href="/resume/<%=Data._id%>/show">
+     
+         <div class="box">
+     
+           <div class="box-img">
+             
+             <img src="<%=Data.resumeImage.url%>" alt="" >
+            
+           </div>
+          
+           <p><%=Data.name%></p>
+         </div>
+</a>
+  <%}%>
+  </div>
+  
+</body>

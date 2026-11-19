@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resume</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#f2f2f2;
+padding:20px;
+}
+
+.resume{
+max-width:1000px;
+margin:auto;
+display:grid;
+grid-template-columns:310px 1fr;
+background:#fff;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
+min-height:1400px;
+}
+
+.left{
+background:linear-gradient(180deg,#003a80,#0056c4);
+color:white;
+padding:35px 28px;
+position:relative;
+overflow:hidden;
+}
+
+.left::after{
+content:"";
+position:absolute;
+bottom:-120px;
+left:-50px;
+width:450px;
+height:250px;
+background:rgba(255,255,255,.05);
+border-radius:50%;
+}
+
+.photo{
+text-align:center;
+margin-bottom:35px;
+}
+
+.photo img{
+width:180px;
+height:180px;
+object-fit:cover;
+border-radius:50%;
+border:6px solid rgba(255,255,255,.9);
+}
+
+.contact div{
+display:flex;
+align-items:center;
+gap:15px;
+margin:18px 0;
+font-size:16px;
+word-break:break-word;
+}
+
+.contact i{
+font-size:26px;
+width:30px;
+}
+
+.contact a{
+color:white;
+text-decoration:none;
+}
+
+.side-section{
+margin-top:35px;
+padding-top:28px;
+border-top:1px solid rgba(255,255,255,.4);
+}
+
+.side-title{
+display:flex;
+align-items:center;
+gap:14px;
+font-size:17px;
+font-weight:700;
+margin-bottom:18px;
+text-transform:uppercase;
+}
+
+.side-title i{
+font-size:28px;
+}
+
+.side-section ul{
+padding-left:18px;
+}
+
+.side-section li{
+margin:10px 0;
+}
+
+.right{
+padding:45px 35px;
+background:#fafafa;
+}
+
+.name{
+font-size:58px;
+font-weight:700;
+line-height:1;
+}
+
+.name span{
+color:#0066d6;
+}
+
+.role{
+font-size:23px;
+margin-top:12px;
+color:#444;
+}
+
+.top-line{
+width:120px;
+height:6px;
+background:#0066d6;
+margin:28px 0;
+}
+
+.section{
+margin-top:35px;
+padding-top:30px;
+border-top:2px solid #dbe6f2;
+}
+
+.heading{
+display:flex;
+align-items:center;
+gap:16px;
+margin-bottom:20px;
+}
+
+.heading .icon{
+width:54px;
+height:54px;
+background:#005ec9;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:24px;
+}
+
+.heading h2{
+font-size:18px;
+font-weight:700;
+color:#003a80;
+text-transform:uppercase;
+}
+
+.summary{
+line-height:1.8;
+font-size:17px;
+color:#333;
+}
+
+.exp-item{
+position:relative;
+padding-left:35px;
+margin-top:20px;
+}
+
+.exp-item::before{
+content:"";
+position:absolute;
+left:9px;
+top:12px;
+width:12px;
+height:12px;
+background:#0066d6;
+border-radius:50%;
+}
+
+.exp-item::after{
+content:"";
+position:absolute;
+left:14px;
+top:24px;
+width:2px;
+height:110%;
+background:#5b8fd9;
+}
+
+.exp-item:last-child::after{
+display:none;
+}
+
+.exp-item h3{
+color:#08295d;
+font-size:22px;
+}
+
+.company{
+font-size:18px;
+margin-top:4px;
+}
+
+.date{
+margin:10px 0;
+color:#245aa8;
+display:flex;
+align-items:center;
+gap:8px;
+font-size:15px;
+}
+
+.project h3{
+font-size:22px;
+color:#08295d;
+margin-bottom:8px;
+}
+
+.project p{
+line-height:1.7;
+margin-bottom:12px;
+}
+
+.info-line{
+display:flex;
+align-items:center;
+gap:12px;
+margin:10px 0;
+color:#0b4ea3;
+}
+
+.info-line a{
+color:#0b4ea3;
+text-decoration:none;
+}
+
+.reference h3{
+font-size:24px;
+color:#08295d;
+}
+
+.reference p{
+margin:6px 0;
+}
+
+@media(max-width:850px){
+
+.resume{
+grid-template-columns:1fr;
+}
+
+.left{
+text-align:center;
+}
+
+.contact div{
+justify-content:center;
+}
+
+.name{
+font-size:42px;
+}
+
+}
+
+@page{
+size:A4;
+margin:0;
+}
+
+@media print{
+
+body{
+padding:0;
+background:white;
+}
+
+.resume{
+box-shadow:none;
+}
+
+}
+.resume-actions {
+      max-width: 1000px;
+      margin: 20px auto;
+      text-align: right;
+    }
+    .resume-actions button {
+      background: #0078d7;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      margin-left: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .resume-actions button:hover {
+      background: #005fa3;
+    }
+    .resume-actions i {
+      margin-right: 6px;
+    }
+
+  /* RESPONSIVE */
+  @media (max-width: 850px) {
+    .resume {
+      grid-template-columns: 1fr;
+    }
+    .left {
+      text-align: center;
+    }
+    .contact div {
+      justify-content: center;
+    }
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="resume">
+
+<div class="left">
+
+<div class="photo">
+<img src="<%= data.profileImage.url %>" alt="<%= data.name %>">
+</div>
+
+<div class="contact">
+
+<div>
+<i class="fas fa-phone"></i>
+<span><%= data.phone %></span>
+</div>
+
+<div>
+<i class="fas fa-envelope"></i>
+<span><%= data.email %></span>
+</div>
+
+<div>
+<i class="fas fa-location-dot"></i>
+<span><%= data.address %></span>
+</div>
+
+<div>
+<i class="fab fa-linkedin"></i>
+<span><%= data.linkedin %></span>
+</div>
+
+<div>
+<i class="fab fa-github"></i>
+<span><%= data.github %></span>
+</div>
+
+</div>
+
+<div class="side-section">
+
+<div class="side-title">
+<i class="fas fa-gear"></i>
+<span>Skills</span>
+</div>
+
+<ul>
+<li><%= data.skills %></li>
+</ul>
+
+</div>
+
+<div class="side-section">
+
+<div class="side-title">
+<i class="fas fa-graduation-cap"></i>
+<span>Education</span>
+</div>
+
+ <h3>Degree:<%= data.education[0].degree %></h3>
+  <p>Specialization:<%= data.education[0].specialization %></p>
+  <p>Institution:<%= data.education[0].institution %></p>
+  <p>Year:<%= data.education[0].year %></p>
+
+</div>
+
+<div class="side-section">
+
+<div class="side-title">
+<i class="fas fa-heart"></i>
+<span>Hobbies</span>
+</div>
+
+<ul>
+<li><%= data.hobby1 %></li>
+<li><%= data.hobby2 %></li>
+<li><%= data.hobby3 %></li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="name">
+
+<%= data.name %>
+
+</div>
+
+<div class="role">
+
+Full Stack Developer
+
+</div>
+
+<div class="top-line"></div>
+
+<div class="section">
+
+<div class="heading">
+
+<div class="icon">
+<i class="fas fa-user"></i>
+</div>
+
+<h2>Professional Summary</h2>
+
+</div>
+
+<p class="summary">
+
+<%= data.summary %>
+
+</p>
+
+</div>
+
+<div class="section">
+
+<div class="heading">
+
+<div class="icon">
+<i class="fas fa-briefcase"></i>
+</div>
+
+<h2>Experience</h2>
+
+</div>
+
+<div class="exp-item">
+
+<h3>Work Experience</h3>
+
+<h3><%= data.experience[0].title %></h3>
+<p><%= data.experience[0].company %></p>
+<p><%= data.experience[0].startDate %> - <%= data.experience[0].endDate %></p>
+<p><%= data.experience[0].responsibilities %></p>
+
+</div>
+
+</div>
+
+<div class="section project">
+
+<div class="heading">
+
+<div class="icon">
+<i class="fas fa-code"></i>
+</div>
+
+<h2>Projects</h2>
+
+</div>
+
+<h3><%= data.projectTitle %></h3>
+
+<p><%= data.projectDescription %></p>
+
+<div class="info-line">
+<i class="fas fa-layer-group"></i>
+<span>Tech: <%= data.projectTech %></span>
+</div>
+
+<div class="info-line">
+<i class="fas fa-link"></i>
+<a href="<%= data.projectLink %>"><%= data.projectLink %></a>
+</div>
+
+</div>
+
+<div class="section reference">
+
+<div class="heading">
+
+<div class="icon">
+<i class="fas fa-user"></i>
+</div>
+
+<h2>Reference</h2>
+
+</div>
+
+<h3><%= data.refName1 %></h3>
+
+<p><%= data.refRelation %></p>
+
+<div class="info-line">
+<i class="fas fa-phone"></i>
+<span><%= data.refContact1 %></span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+ <form action="/resume/<%=data._id%>/edit">
+        <div class="resume-actions">
+    <button onclick="window.location.href='/resume/edit/<%= data._id %>'">
+      <i class="fas fa-edit"></i> Edit
+  </div>
+       </form>
+       <form action="">
+        <div class="resume-actions">
+         </button>
+    <button onclick="window.print()">
+      <i class="fas fa-print"></i> Print
+    </button>
+       </form>
+         </div>
+
+</body>
+</html>

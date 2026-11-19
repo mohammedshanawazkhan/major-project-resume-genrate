@@ -1,0 +1,263 @@
+<% layout("/layouts/boilerplate") %>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account</title>
+  <style>
+    /* body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    } */
+  h1{
+    text-align: center;
+  }
+    form {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 35rem;
+      margin: 0 auto;
+      margin-bottom: 20rem;
+      margin-top: 5rem;
+      height: 30rem;
+
+      
+    }
+
+    form div {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4facfe;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00c6fb;
+    }
+  </style>
+</head>
+<body>
+   
+  <form action="/signup" method="post">
+    <div>
+         <h1>Create Your Account</h1>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Create Account</button>
+  </form>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+
+<style>
+
+
+
+
+form{
+    width:700px;
+    max-width:90%;
+    background:white;
+    padding:30px;
+    margin:60px auto;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:15px;
+}
+
+.signup-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#28a745;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.signup-btn:hover{
+    background:#218838;
+}
+
+.or{
+    text-align:center;
+    margin:20px 0;
+    color:#666;
+    font-weight:bold;
+}
+
+.social-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    padding:12px;
+    border-radius:6px;
+    margin-top:10px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+/* Google */
+.google{
+    background:red;
+}
+
+.google:hover{
+    background:red;
+}
+
+/* GitHub */
+.github{
+    background:#24292E;
+}
+
+.github:hover{
+    background:#000;
+}
+
+/* Facebook */
+.facebook{
+    background:#1877F2;
+}
+
+.facebook:hover{
+    background:#0D65D9;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.login-link a{
+    text-decoration:none;
+    color:#4285F4;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<form action="/signup" method="POST">
+
+    <h1>Create Account</h1>
+
+    
+
+    <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="username" required>
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <button type="submit" class="signup-btn">
+        Sign Up
+    </button>
+
+    <p class="or">OR SIGN UP WITH</p>
+
+    <a href="/auth/google" class="social-btn google">
+        Continue with Google
+    </a>
+
+    <a href="/auth/github" class="social-btn github">
+        Continue with GitHub
+    </a>
+
+    <a href="/auth/facebook" class="social-btn facebook">
+        Continue with Facebook
+    </a>
+
+    <div class="login-link">
+        Already have an account?
+        <a href="/login">Login</a>
+    </div>
+
+</form>
+
+</body>
+</html>

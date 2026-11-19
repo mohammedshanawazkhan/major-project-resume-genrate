@@ -1,0 +1,229 @@
+<% layout("/layouts/boilerplate") %>
+ <!-- <style>
+
+    /* /* body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    } */
+  h1{
+    text-align: center;
+  }
+    form {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 35rem;
+      margin: 0 auto;
+      margin-bottom: 20rem;
+      margin-top: 5rem;
+      height: 30rem;
+
+      
+    }
+
+    form div {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4facfe;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00c6fb;
+    }
+  </style>
+</head>
+<body>
+   
+  <form action="/login" method="post">
+    <div>
+         <h1> Your Account</h1>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+*{
+    /* margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif; */
+}
+
+body{
+    background:#f4f7fc;
+}
+
+form{
+    width:400px;
+    background:white;
+    padding:25px;
+    margin:80px auto;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#333;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.login-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:5px;
+    background:#4facfe;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.login-btn:hover{
+    background:#2196f3;
+}
+
+.or{
+    text-align:center;
+    margin:20px 0;
+    color:#666;
+}
+
+.social-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    padding:12px;
+    border-radius:5px;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.google{
+    background:#db4437;
+}
+
+.google:hover{
+    background:#c23321;
+}
+
+.github{
+    background:#24292e;
+}
+
+.github:hover{
+    background:#000;
+}
+
+.facebook{
+    background:#1877f2;
+}
+
+.facebook:hover{
+    background:#0d65d9;
+}
+</style>
+</head>
+<body>
+
+<form action="/login" method="POST">
+
+    <h1>Your Account</h1>
+
+    <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="username" required>
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <button type="submit" class="login-btn">
+        Login
+    </button>
+
+    <p class="or">OR</p>
+
+    <a href="/auth/google" class="social-btn google">
+        Continue with Google
+    </a>
+
+    <a href="/auth/github" class="social-btn github">
+        Continue with GitHub
+    </a>
+
+    <a href="/auth/facebook" class="social-btn facebook">
+        Continue with Facebook
+    </a>
+
+</form>
+
+</body>
+</html>

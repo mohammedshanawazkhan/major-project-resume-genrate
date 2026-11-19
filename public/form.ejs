@@ -1,0 +1,218 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+   
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      margin-top: 30px;
+      color: #444;
+      border-left: 4px solid #0078d7;
+      padding-left: 8px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #0078d7;
+      outline: none;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .col {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    button {
+      background: #0078d7;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Resume Form</h2>
+    <form action="/resume/<%=data._id%>" method="POST" enctype="multipart/form-data">
+
+      <div class="row">
+        <div class="col">
+          <label for="profileImage">Profile Image URL</label>
+          <input type="file" id="profileImage" name="profileImage" required>
+        </div>
+        <div class="col">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" name="phone" required>
+        </div>
+        <div class="col">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" required>
+
+      <div class="row">
+        <div class="col">
+          <label for="linkedin">LinkedIn</label>
+          <input type="url" id="linkedin" name="linkedin">
+        </div>
+        <div class="col">
+          <label for="github">GitHub</label>
+          <input type="url" id="github" name="github">
+        </div>
+      </div>
+
+      <label for="summary">Summary</label>
+      <textarea id="summary" name="summary" rows="4" required></textarea>
+
+      <h4>Education</h4>
+      <div class="row">
+        <div class="col">
+          <label>Degree</label>
+          <input type="text" name="education[0][degree]">
+        </div>
+        <div class="col">
+          <label>Institution</label>
+          <input type="text" name="education[0][institution]">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Year</label>
+          <input type="text" name="education[0][year]">
+        </div>
+        <div class="col">
+          <label>Specialization</label>
+          <input type="text" name="education[0][specialization]">
+        </div>
+      </div>
+
+      <h4>Skills</h4>
+      <input type="text" name="skills[]" placeholder="Skill 1">
+      <input type="text" name="skills[]" placeholder="Skill 2">
+      <input type="text" name="skills[]" placeholder="Skill 3">
+
+      <h4>Experience</h4>
+      <div class="row">
+        <div class="col">
+          <label>Job Title</label>
+          <input type="text" name="experience[0][title]">
+        </div>
+        <div class="col">
+          <label>Company</label>
+          <input type="text" name="experience[0][company]">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Start Date</label>
+          <input type="text" name="experience[0][startDate]">
+        </div>
+        <div class="col">
+          <label>End Date</label>
+          <input type="text" name="experience[0][endDate]">
+        </div>
+      </div>
+      <label>Responsibilities</label>
+      <textarea name="experience[0][responsibilities]" rows="3"></textarea>
+
+      <h4>Project</h4>
+      <label>Project Title</label>
+      <input type="text" name="projectTitle">
+      <label>Project Description</label>
+      <textarea name="projectDescription" rows="3"></textarea>
+      <label>Technologies</label>
+      <input type="text" name="projectTech">
+      <label>Project Link</label>
+      <input type="url" name="projectLink">
+
+      <h4>Hobbies</h4>
+      <input type="text" name="hobby1" placeholder="Hobby 1">
+      <input type="text" name="hobby2" placeholder="Hobby 2">
+      <input type="text" name="hobby3" placeholder="Hobby 3">
+
+      <h4>Reference</h4>
+      <div class="row">
+        <div class="col">
+          <label>Name</label>
+          <input type="text" name="refName1">
+        </div>
+        <div class="col">
+          <label>Contact</label>
+          <input type="text" name="refContact1">
+        </div>
+        <div class="col">
+          <label>Relation</label>
+          <input type="text" name="refRelation1">
+        </div>
+        <!-- <div class="col">
+          <label>Template-Id</label>
+          <input type="text" name="tempId">
+        </div> -->
+      </div>
+
+      <button type="submit">Submit Resume</button>
+    </form>
+  </div>
+
+
+</body>
